@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, ".netlify/functions/proxy"  ]
+, ".netlify/functions/proxy", ".netlify/functions/server.js"  ]
 }
