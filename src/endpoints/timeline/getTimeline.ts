@@ -15,10 +15,13 @@ export interface TimelineDataResponseType {
 }
 
 const getTimelineData = (chainName: string, compareName: string) => {
-  const url = "http://localhost:5001/basic-timeline-data";
+  const url =
+    "https://api.tokenguard.io/db-api/growth-index/basic-timeline-data";
   return axios.post<TimelineDataResponseType>(url, {
     chainName,
-    compareName,
+    period: "last year",
+    metric: "tg_growth_index",
+    compareWith: [compareName],
   });
 };
 
