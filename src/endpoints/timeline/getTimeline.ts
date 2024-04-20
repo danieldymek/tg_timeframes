@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export type IndexData = {
   date: string;
@@ -15,14 +16,16 @@ export interface TimelineDataResponseType {
 }
 
 const getTimelineData = (chainName: string, compareName: string) => {
-  const url =
-    "https://api.tokenguard.io/db-api/growth-index/basic-timeline-data";
-  return axios.post<TimelineDataResponseType>(url, {
-    chainName,
-    period: "last year",
-    metric: "tg_growth_index",
-    compareWith: [compareName],
-  });
+  const url = "https://tokenguard-api.onrender.com/basic-timeline-data";
+  const response = axios
+    .post<TimelineDataResponseType>(url, {
+      chainName,
+      compareName,
+    })
+    .catch((error) => {
+      toast(error);
+    });
+  return response;
 };
 
 export { getTimelineData };
