@@ -34,6 +34,13 @@ export const getChartOptions = (
         name: chainName,
         type: "line",
         data: chainNamePeriodValues[period],
+        animationEasing: "elasticOut",
+        animationDelay: function (idx: number) {
+          return idx * 10;
+        },
+        animationDelayUpdate: function (idx: number) {
+          return idx * 10;
+        },
         itemStyle: { normal: { areaStyle: { type: "default" } } },
         smooth: true,
       });
@@ -58,6 +65,13 @@ export const getChartOptions = (
         name: compareName,
         type: "line",
         data: compareNamePeriodValues[period],
+        animationEasing: "elasticOut",
+        animationDelay: function (idx: number) {
+          return idx * 10;
+        },
+        animationDelayUpdate: function (idx: number) {
+          return idx * 10;
+        },
         itemStyle: { normal: { areaStyle: { type: "default" } } },
         smooth: true,
       });

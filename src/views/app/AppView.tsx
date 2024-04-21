@@ -43,7 +43,7 @@ const AppView = () => {
   const [period, setPeriod] = useState<"1w" | "2w" | "1M">("1w");
 
   const timelineData = useTimelineData(
-    selectedBlockchain.toLowerCase(),
+    selectedBlockchain.toLowerCase().toLowerCase().replace(" ", "-"),
     selectedCompareBlockchain.toLowerCase().replace(" ", "-")
   );
 
